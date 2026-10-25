@@ -1,1 +1,16 @@
+# Problem Name: Set .symmetric_difference()
+# HackerRank Link:https://www.hackerrank.com/challenges/py-set-symmetric-difference-operation/problem
+ 
 
+# Read input from STDIN
+n = int(input())
+english = set(map(int, input().split()))
+
+m = int(input())
+french = set(map(int, input().split()))
+
+# Find the symmetric difference between the two sets
+symmetric_diff = english.symmetric_difference(french)
+
+# Print the total count of students
+print(len(symmetric_diff))
