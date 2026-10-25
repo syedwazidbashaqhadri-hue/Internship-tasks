@@ -1,1 +1,19 @@
+#Mars Exploration
+#https://www.hackerrank.com/challenges/mars-exploration/problem
 
+
+
+def marsExploration(s):
+    # Expected pattern consists of repeating "SOS"
+    expected = "SOS" * (len(s) // 3)
+    
+    # Count how many characters differ between the received string and the expected string
+    changed_count = sum(1 for r, e in zip(s, expected) if r != e)
+    
+    return changed_count
+
+# Read input from STDIN
+s = input().strip()
+
+# Print the result
+print(marsExploration(s))
