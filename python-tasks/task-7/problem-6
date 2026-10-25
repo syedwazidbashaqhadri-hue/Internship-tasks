@@ -1,1 +1,44 @@
+#6
+#Pangrams
+#https://www.hackerrank.com/challenges/pangrams/problem
 
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+import string
+
+#
+# Complete the 'pangrams' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def pangrams(s):
+    # Create a set of all lowercase English letters (a-z)
+    alphabet = set(string.ascii_lowercase)
+    
+    # Convert the input string to lowercase and make a set of its characters
+    input_letters = set(s.lower())
+    
+    # Check if all alphabet letters are a subset of the input characters
+    if alphabet.issubset(input_letters):
+        return "pangram"
+    else:
+        return "not pangram"
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = pangrams(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
