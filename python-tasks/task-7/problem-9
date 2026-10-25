@@ -1,1 +1,50 @@
+#9
+#Beautiful Binary String
+#https://www.hackerrank.com/challenges/beautiful-binary-string/problem
 
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'beautifulBinaryString' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING b as parameter.
+#
+
+def beautifulBinaryString(b):
+    steps = 0
+    i = 0
+    # Convert string to list so we can modify characters if needed, 
+    # or just count overlapping/non-overlapping "010" occurrences.
+    # Greedily change the middle character of every found "010" at the third position.
+    b_list = list(b)
+    while i < len(b_list) - 2:
+        if b_list[i] == '0' and b_list[i+1] == '1' and b_list[i+2] == '0':
+            # Flip the '0' at index i+2 to '1' to break the "010" pattern efficiently
+            b_list[i+2] = '1'
+            steps += 1
+            i += 3  # Skip past this match
+        else:
+            i += 1
+            
+    return steps
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    b = input()
+
+    result = beautifulBinaryString(b)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
