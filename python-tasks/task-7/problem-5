@@ -1,1 +1,19 @@
+#5
+#Alternating Characters
+#https://www.hackerrank.com/challenges/alternating-characters/problem
 
+
+def alternatingCharacters(s):
+    deletions = 0
+    # Compare each character with the next character
+    for i in range(len(s) - 1):
+        if s[i] == s[i+1]:
+            deletions += 1
+    return deletions
+
+# Read input for HackerRank queries
+if __name__ == '__main__':
+    q = int(input().strip())
+    for _ in range(q):
+        s = input().strip()
+        print(alternatingCharacters(s))
