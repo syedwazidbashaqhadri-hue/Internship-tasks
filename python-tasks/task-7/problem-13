@@ -1,1 +1,60 @@
+#13
+#Sherlock and the Valid String
+#https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem
 
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+#
+# Complete the 'isValid' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def isValid(s):
+    # Count frequencies of each character
+    char_counts = Counter(s)
+    # Count how many times each frequency occurs
+    freq_counts = Counter(char_counts.values())
+    
+    # Condition 1: All characters already have the same frequency (only 1 unique frequency)
+    if len(freq_counts) == 1:
+        return "YES"
+    
+    # If there are more than 2 unique frequencies, it's impossible to fix by removing just 1 character
+    if len(freq_counts) > 2:
+        return "NO"
+    
+    # If there are exactly 2 unique frequencies, check the rules
+    freqs = list(freq_counts.keys())
+    f1, f2 = freqs[0], freqs[1]
+    count1, count2 = freq_counts[f1], freq_counts[f2]
+    
+    # Rule A: One frequency is 1 and it occurs only once (we can delete that single character entirely)
+    if (f1 == 1 and count1 == 1) or (f2 == 1 and count2 == 1):
+        return "YES"
+    
+    # Rule B: The difference between the two frequencies is 1, and the higher frequency occurs only once
+    if abs(f1 - f2) == 1 and ((f1 > f2 and count1 == 1) or (f2 > f1 and count2 == 1)):
+        return "YES"
+        
+    return "NO"
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = isValid(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
