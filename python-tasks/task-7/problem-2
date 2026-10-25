@@ -1,1 +1,20 @@
+#The Captain's Room
+#https://www.hackerrank.com/challenges/py-the-captains-room/problem
 
+
+# Read the size of each family group
+k = int(input())
+
+# Read the list of room numbers and convert them into a list of integers
+room_numbers = list(map(int, input().split()))
+
+# Use sets for a mathematical trick:
+# The sum of all unique room numbers multiplied by k, 
+# minus the sum of all room numbers in the list, 
+# divided by (k - 1) will give the Captain's room number.
+unique_rooms = set(room_numbers)
+
+captain_room = (sum(unique_rooms) * k - sum(room_numbers)) // (k - 1)
+
+# Print the Captain's room number
+print(captain_room)
