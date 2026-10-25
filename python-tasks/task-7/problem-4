@@ -1,1 +1,21 @@
+#4
+#Funny String
+#https://www.hackerrank.com/challenges/funny-string/problem
 
+
+def funnyString(s):
+    # Calculate the absolute differences of adjacent characters in the original string
+    diffs = [abs(ord(s[i]) - ord(s[i+1])) for i in range(len(s) - 1)]
+    
+    # If the list of differences is equal to its own reverse, it's funny
+    if diffs == diffs[::-1]:
+        return "Funny"
+    else:
+        return "Not Funny"
+
+# Read input for HackerRank queries
+if __name__ == '__main__':
+    q = int(input().strip())
+    for _ in range(q):
+        s = input().strip()
+        print(funnyString(s))
