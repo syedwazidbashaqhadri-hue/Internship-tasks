@@ -1,1 +1,44 @@
+#15
+#Game of Thrones - I
+#https://www.hackerrank.com/challenges/game-of-thrones/problem
 
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+#
+# Complete the 'gameOfThrones' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def gameOfThrones(s):
+    # Count the frequencies of each character
+    char_counts = Counter(s)
+    
+    # Count how many characters have an odd frequency count
+    odd_count = sum(1 for freq in char_counts.values() if freq % 2 != 0)
+    
+    # A string can form a palindrome if 0 or 1 character has an odd frequency
+    if odd_count <= 1:
+        return "YES"
+    else:
+        return "NO"
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = gameOfThrones(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
