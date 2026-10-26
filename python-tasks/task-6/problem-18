@@ -1,1 +1,36 @@
+#18
+#Set Mutations
+#https://www.hackerrank.com/challenges/py-set-mutations/problem
 
+
+if __name__ == '__main__':
+    # Read the number of elements in set A (though not strictly needed for creation)
+    n = int(input())
+    
+    # Initialize set A
+    set_a = set(map(int, input().split()))
+    
+    # Read the number of other sets/operations
+    num_operations = int(input())
+    
+    # Process each operation
+    for _ in range(num_operations):
+        # Read the operation name and the size of the other set
+        op_data = input().split()
+        operation = op_data[0]
+        
+        # Read the other set elements
+        other_set = set(map(int, input().split()))
+        
+        # Perform the corresponding mutation operation
+        if operation == 'update':
+            set_a.update(other_set)
+        elif operation == 'intersection_update':
+            set_a.intersection_update(other_set)
+        elif operation == 'difference_update':
+            set_a.difference_update(other_set)
+        elif operation == 'symmetric_difference_update':
+            set_a.symmetric_difference_update(other_set)
+            
+    # Print the sum of the elements in set A after all mutations
+    print(sum(set_a))
