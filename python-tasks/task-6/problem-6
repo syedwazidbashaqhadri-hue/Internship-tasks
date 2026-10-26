@@ -1,1 +1,10 @@
+#6
+#Print Function
+#https://www.hackerrank.com/challenges/python-print/problem
 
+
+if __name__ == '__main__':
+    n = int(input())
+    
+    # Print numbers from 1 to n on the same line without spaces
+    print(*(range(1, n + 1)), sep='')
