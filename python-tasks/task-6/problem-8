@@ -1,1 +1,13 @@
+#8
+#Tuples
+#https://www.hackerrank.com/challenges/python-tuples/problem
 
+if __name__ == '__main__':
+    # Read the number of elements (though not strictly necessary to use in Python due to split)
+    n = int(input())
+    
+    # Read space-separated integers, convert them to integers, and pack them into a tuple
+    integer_list = tuple(map(int, input().split()))
+    
+    # Compute and print the hash of the tuple
+    print(hash(integer_list))
