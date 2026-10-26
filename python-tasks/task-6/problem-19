@@ -1,1 +1,20 @@
+#19
+#Company Logo
+#https://www.hackerrank.com/challenges/most-commons/problem
 
+
+from collections import Counter
+
+if __name__ == '__main__':
+    s = input().strip()
+    
+    # Count character frequencies
+    counts = Counter(s)
+    
+    # Sort by frequency descending, then by character alphabetically
+    # Counter.most_common() handles frequency descending, but we need secondary sorting by character
+    sorted_chars = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    
+    # Print the top 3 characters and their counts
+    for char, count in sorted_chars[:3]:
+        print(f"{char} {count}")
