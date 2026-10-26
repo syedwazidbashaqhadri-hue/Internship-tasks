@@ -1,1 +1,22 @@
+#17
+#Check Strict Superset
+#https://www.hackerrank.com/challenges/py-check-strict-superset/problem
 
+
+if __name__ == '__main__':
+    # Read the main set A
+    set_a = set(map(int, input().split()))
+    
+    # Read the number of other sets
+    n = int(input())
+    
+    # Assume True initially, and check each other set
+    is_strict_superset = True
+    
+    for _ in range(n):
+        other_set = set(map(int, input().split()))
+        # A strict superset must contain all elements and be strictly larger
+        if not (set_a > other_set):
+            is_strict_superset = False
+            
+    print(is_strict_superset)
