@@ -1,1 +1,19 @@
+#15
+#Set .difference() Operation
+#https://www.hackerrank.com/challenges/py-set-difference-operation/problem
 
+
+if __name__ == '__main__':
+    # Read English subscribers count and roll numbers
+    n = int(input())
+    english_subscribers = set(map(int, input().split()))
+    
+    # Read French subscribers count and roll numbers
+    b = int(input())
+    french_subscribers = set(map(int, input().split()))
+    
+    # Find students subscribed to English newspaper only using difference()
+    english_only = english_subscribers.difference(french_subscribers)
+    
+    # Print the total number of students
+    print(len(english_only))
