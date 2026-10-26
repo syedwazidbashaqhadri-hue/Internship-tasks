@@ -1,1 +1,12 @@
+#4
+#Loops
+#https://www.hackerrank.com/challenges/python-loops/problem
 
+
+if __name__ == '__main__':
+    n = int(input().strip())
+    
+    # Loop through all non-negative integers from 0 up to n - 1
+    for i in range(n):
+        # Print the square of each number on a new line
+        print(i ** 2)
