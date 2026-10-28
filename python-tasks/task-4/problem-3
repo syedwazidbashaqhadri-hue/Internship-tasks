@@ -1,1 +1,14 @@
+#3
+#Python Division
+#https://www.hackerrank.com/challenges/python-division/problem
 
+
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+    
+    # 1. Integer division
+    print(a // b)
+    
+    # 2. Float division
+    print(a / b)
