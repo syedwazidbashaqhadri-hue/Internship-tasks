@@ -1,1 +1,10 @@
+#5
+#Print Function
+#https://www.hackerrank.com/challenges/python-print/problem
 
+
+if __name__ == '__main__':
+    n = int(input())
+    
+    # Print the sequence from 1 to n with no separator between them
+    print(*range(1, n + 1), sep='')
