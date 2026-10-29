@@ -1,1 +1,27 @@
+#19
+#Collections.Counter()
+#https://www.hackerrank.com/challenges/collections-counter/problem
 
+
+from collections import Counter
+
+if __name__ == '__main__':
+    # Read the number of shoes and create a Counter object for shoe sizes
+    num_shoes = int(input())
+    shoe_inventory = Counter(map(int, input().split()))
+    
+    # Read the number of customers
+    num_customers = int(input())
+    
+    total_earned = 0
+    
+    # Process each customer's purchase request
+    for _ in range(num_customers):
+        size, price = map(int, input().split())
+        
+        # Check if the shoe size is available in inventory
+        if shoe_inventory[size] > 0:
+            total_earned += price
+            shoe_inventory[size] -= 1  # Reduce the count of that shoe size
+            
+    print(total_earned)
