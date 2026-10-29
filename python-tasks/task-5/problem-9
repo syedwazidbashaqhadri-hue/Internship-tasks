@@ -1,1 +1,27 @@
+#9
+#Word Order
+#https://www.hackerrank.com/challenges/word-order/problem
 
+
+from collections import OrderedDict
+import sys
+
+if __name__ == '__main__':
+    # Read all input from standard input at once for efficiency
+    lines = sys.stdin.read().splitlines()
+    
+    if lines:
+        n = int(lines[0])
+        words = lines[1:n+1]
+        
+        # OrderedDict explicitly maintains the exact insertion order of keys
+        word_counts = OrderedDict()
+        
+        for word in words:
+            word_counts[word] = word_counts.get(word, 0) + 1
+            
+        # Print the total number of distinct words
+        print(len(word_counts))
+        
+        # Print the frequency counts corresponding to their order of first appearance
+        print(*(word_counts.values()))
