@@ -1,1 +1,22 @@
+#20
+#No Idea!
+#https://www.hackerrank.com/challenges/no-idea/problem
 
+
+if __name__ == '__main__':
+    # Read n (array size) and m (set size)
+    n, m = map(int, input().split())
+    
+    # Read the array of integers
+    arr = list(map(int, input().split()))
+    
+    # Read sets A and B, converting them to sets for O(1) average lookup time
+    A = set(map(int, input().split()))
+    B = set(map(int, input().split()))
+    
+    # Calculate the total happiness
+    # (num in A) evaluates to 1 if True, 0 if False
+    # (num in B) evaluates to 1 if True, 0 if False
+    happiness = sum((num in A) - (num in B) for num in arr)
+    
+    print(happiness)
