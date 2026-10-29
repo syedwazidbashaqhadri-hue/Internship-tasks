@@ -1,1 +1,17 @@
+#7
+#Symmetric Difference
+#https://www.hackerrank.com/challenges/symmetric-difference/problem
 
+
+if __name__ == '__main__':
+    m = int(input())
+    a = set(map(int, input().split()))
+    n = int(input())
+    b = set(map(int, input().split()))
+    
+    # Compute symmetric difference using set difference (-) and union (|) operators
+    sym_diff = (a - b).union(b - a)
+    
+    # Sort the resulting set in ascending order and print each element on a new line
+    for num in sorted(sym_diff):
+        print(num)
