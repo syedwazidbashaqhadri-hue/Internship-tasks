@@ -1,1 +1,20 @@
+#3
+#Mutations
+#https://www.hackerrank.com/challenges/python-mutations/problem
 
+
+def mutate_string(string, position, character):
+    # Convert the string into a list of characters (since lists are mutable)
+    l = list(string)
+    
+    # Assign the new character at the specified index
+    l[position] = character
+    
+    # Join the list back into a single string
+    return "".join(l)
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
