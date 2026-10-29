@@ -1,1 +1,26 @@
+#13
+#Nested Lists
+#https://www.hackerrank.com/challenges/nested-list/problem
 
+
+if __name__ == '__main__':
+    students = []
+    
+    # Read the number of students
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        students.append([name, score])
+        
+    # Extract all unique grades and sort them in ascending order
+    grades = sorted(list(set(student[1] for student in students)))
+    
+    # The second lowest grade will be at index 1
+    second_lowest_grade = grades[1]
+    
+    # Filter out the names of students who have the second lowest grade and sort alphabetically
+    second_lowest_students = sorted([student[0] for student in students if student[1] == second_lowest_grade])
+    
+    # Print each student's name on a new line
+    for name in second_lowest_students:
+        print(name)
