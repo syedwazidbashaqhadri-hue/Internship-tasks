@@ -1,1 +1,20 @@
+#19
+#Merge the Tools!
+#https://www.hackerrank.com/challenges/merge-the-tools/problem
+def merge_the_tools(string, k):
+    # Iterate through the string in chunks of size k
+    for i in range(0, len(string), k):
+        substring = string[i:i + k]
+        
+        # Use dict.fromkeys() to remove duplicate characters while preserving their original order
+        seen = ""
+        for char in substring:
+            if char not in seen:
+                seen += char
+                
+        print(seen)
+
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)
 
