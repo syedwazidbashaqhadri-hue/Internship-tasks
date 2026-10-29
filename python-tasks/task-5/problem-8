@@ -3,4 +3,14 @@
 #https://www.hackerrank.com/challenges/py-set-add/problem
 
 
-“Jinhone hamku dil dard dekar chhoda, ham unse duur hote waqt unku bolte ki tumharku hamse bhi achha partner mile, tum hamse bhi zyada khush raho… ham tumhari zindagi se duur jaare, lekin tumharku kabhi hamari wajah se guilt na ho
+if __name__ == '__main__':
+    n = int(input())
+    
+    # Use a set to store unique country stamps
+    stamps = set()
+    
+    for _ in range(n):
+        stamps.add(input().strip())
+        
+    # Print the total number of distinct stamps
+    print(len(stamps))
