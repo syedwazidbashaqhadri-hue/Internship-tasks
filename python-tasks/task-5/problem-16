@@ -1,1 +1,22 @@
+#17
+#No Idea!
+#https://www.hackerrank.com/challenges/no-idea/problem
 
+
+if __name__ == '__main__':
+    # Read n and m (though n and m aren't strictly necessary for the logic if using split)
+    n, m = map(int, input().split())
+    
+    # Read the array of integers
+    arr = list(map(int, input().split()))
+    
+    # Read sets A and B, converting them into sets for O(1) lookups
+    A = set(map(int, input().split()))
+    B = set(map(int, input().split()))
+    
+    # Calculate happiness using a generator expression and sum()
+    # (i in A) evaluates to 1 if True, 0 if False
+    # (i in B) evaluates to 1 if True, 0 if False
+    happiness = sum((i in A) - (i in B) for i in arr)
+    
+    print(happiness)
