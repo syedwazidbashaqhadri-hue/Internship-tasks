@@ -1,1 +1,28 @@
+#14
+#Finding the Percentage
+#https://www.hackerrank.com/challenges/finding-the-percentage/problem
 
+
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    
+    # Read each student's name and their corresponding marks
+    for _ in range(n):
+        line = input().split()
+        name = line[0]
+        # Convert all the mark strings into floats
+        scores = list(map(float, line[1:]))
+        student_marks[name] = scores
+        
+    # Read the query name for whom we need to calculate the average
+    query_name = input()
+    
+    # Retrieve the list of marks for the queried student
+    query_scores = student_marks[query_name]
+    
+    # Calculate the average score
+    average_score = sum(query_scores) / len(query_scores)
+    
+    # Print the result formatted to 2 decimal places
+    print(f"{average_score:.2f}")
