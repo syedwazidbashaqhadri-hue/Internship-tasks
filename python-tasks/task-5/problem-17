@@ -1,30 +1,19 @@
-#18
-#The Minion Game
-#https://www.hackerrank.com/challenges/the-minion-game/problem
-
-
-def minion_game(string):
-    vowels = 'AEIOU'
-    stuart_score = 0
-    kevin_score = 0
-    string_length = len(string)
-    
-    for i in range(string_length):
-        # If the character is a vowel, Kevin gets points for all substrings starting from this index
-        if string[i] in vowels:
-            kevin_score += string_length - i
-        # If it's a consonant, Stuart gets points for all substrings starting from this index
-        else:
-            stuart_score += string_length - i
-            
-    # Determine the winner and print the result
-    if stuart_score > kevin_score:
-        print(f"Stuart {stuart_score}")
-    elif kevin_score > stuart_score:
-        print(f"Kevin {kevin_score}")
-    else:
-        print("Draw")
+#17
+#No Idea!
+#https://www.hackerrank.com/challenges/no-idea/problem
 
 if __name__ == '__main__':
-    s = input().strip()
-    minion_game(s)
+    # Read n and m
+    n, m = map(int, input().split())
+    
+    # Read the array of integers
+    arr = list(map(int, input().split()))
+    
+    # Read sets A and B, converting them to sets for O(1) lookups
+    A = set(map(int, input().split()))
+    B = set(map(int, input().split()))
+    
+    # Calculate the total happiness by checking membership in sets A and B
+    happiness = sum((i in A) - (i in B) for i in arr)
+    
+    print(happiness)
