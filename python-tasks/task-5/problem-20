@@ -1,1 +1,32 @@
+#20
+#Piling Up!
+#https://www.hackerrank.com/challenges/piling-up/problem
 
+
+from collections import deque
+
+def can_stack_cubes(blocks):
+    d = deque(blocks)
+    # The top cube of our vertical pile starts with an infinitely large side length
+    top_cube = float('inf')
+    
+    while d:
+        # Compare the leftmost and rightmost elements
+        if d[0] >= d[-1]:
+            current = d.popleft()
+        else:
+            current = d.pop()
+            
+        # The current cube must be less than or equal to the top cube of the pile
+        if current <= top_cube:
+            top_cube = current
+        else:
+            return "No"
+            
+    return "Yes"
+
+if __name__ == '__main__':
+    for _ in range(int(input())):
+        n = int(input())
+        blocks = list(map(int, input().split()))
+        print(can_stack_cubes(blocks))
