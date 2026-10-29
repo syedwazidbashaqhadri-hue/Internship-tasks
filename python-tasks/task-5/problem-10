@@ -1,1 +1,13 @@
+#10
+#Swap Case
+#https://www.hackerrank.com/challenges/swap-case/problem
 
+
+def swap_case(s):
+    # Use Python's built-in string method to swap cases directly
+    return s.swapcase()
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
