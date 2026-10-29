@@ -1,1 +1,16 @@
+#14
+#Set .add()
+#https://www.hackerrank.com/challenges/py-set-add/problem
 
+
+if __name__ == '__main__':
+    n = int(input())
+    
+    # Use a set to store unique country stamps
+    stamps = set()
+    
+    for _ in range(n):
+        stamps.add(input().strip())
+        
+    # Print the total number of distinct stamps
+    print(len(stamps))
