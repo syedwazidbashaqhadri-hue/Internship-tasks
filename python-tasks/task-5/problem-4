@@ -1,1 +1,26 @@
+#4
+#Find a String
+#https://www.hackerrank.com/challenges/find-a-string/problem
 
+
+def count_substring(string, sub_string):
+    count = 0
+    index = 0
+    
+    # Keep searching for the substring starting from the next index after the last match
+    while True:
+        index = string.find(sub_string, index)
+        if index == -1:
+            break
+        count += 1
+        # Advance by 1 to catch overlapping occurrences (e.g., 'CDC' in 'ABCDCDC')
+        index += 1
+        
+    return count
+
+if __name__ == '__main__':
+    string = input().strip()
+    sub_string = input().strip()
+    
+    count = count_substring(string, sub_string)
+    print(count)
